@@ -8,11 +8,11 @@
     </div>
   </div>
 </div>
-<div class="center-container mt-3">
+<div class="center-container mt-3 mb-3">
   <button (click)="flipBoard()">Flip</button>
   <h2 *ngIf="gameOverMessage" class="game-over-message">{{gameOverMessage}}</h2>
 </div>
-<div *ngIf="isPromotionActive" class="promotion-dialog">
+<div *ngIf="isPromotionActive" class="promotion-dialog center-container mt-3">
   <img *ngFor="let piece of promotionPieces()" [src]="pieceImagePaths[piece]" (click)="promotePiece(piece)">
   <span class="close-promotion-dialog" (click)="closePawnPromotionDialog()">&times;</span>
 </div>
