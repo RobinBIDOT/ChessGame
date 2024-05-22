@@ -16,17 +16,18 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
 
   protected chessBoard = new ChessBoard();
   public chessBoardView: (FENChar | null)[][] = this.chessBoard.chessBoardView;
-  public get playerColor(): Color { return this.chessBoard.playerColor; };
-  public get safeSquares(): SafeSquares { return this.chessBoard.safeSquares; };
-  public get gameOverMessage(): string | undefined { return this.chessBoard.gameOverMessage; };
+  public get playerColor(): Color { return this.chessBoard.playerColor; }
+  public get safeSquares(): SafeSquares { return this.chessBoard.safeSquares; }
+  public get gameOverMessage(): string | undefined { return this.chessBoard.gameOverMessage; }
+  public get victoryMessage(): string | undefined { return this.chessBoard.victoryMessage; }
 
   private selectedSquare: SelectedSquare = { piece: null };
   private pieceSafeSquares: Coords[] = [];
   private lastMove: LastMove | undefined = this.chessBoard.lastMove;
   private checkState: CheckState = this.chessBoard.checkState;
 
-  public get moveList(): MoveList { return this.chessBoard.moveList; };
-  public get gameHistory(): GameHistory { return this.chessBoard.gameHistory; };
+  public get moveList(): MoveList { return this.chessBoard.moveList; }
+  public get gameHistory(): GameHistory { return this.chessBoard.gameHistory; }
   public gameHistoryPointer: number = 0;
 
   // promotion properties
@@ -119,7 +120,7 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
   }
 
   private selectingPiece(x: number, y: number): void {
-    if (this.gameOverMessage !== undefined) return;
+    if (this.gameOverMessage !== undefined || this.victoryMessage !== undefined) return;
     const piece: FENChar | null = this.chessBoardView[x][y];
     if (!piece) return;
     if (this.isWrongPieceSelected(piece)) return;
@@ -183,6 +184,7 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
     else
       this.moveSound(new Set<MoveType>([MoveType.BasicMove]));
   }
+
   public move(x: number, y: number): void {
     this.selectingPiece(x, y);
     this.placingPiece(x, y);

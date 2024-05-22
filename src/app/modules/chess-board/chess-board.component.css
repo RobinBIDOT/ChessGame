@@ -29,7 +29,21 @@
 
 
 .game-over-message {
-    color: white;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: red;
+  width: 100%;
+}
+
+.victory-message {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: green;
+  width: 100%;
 }
 
 .promotion-dialog {
