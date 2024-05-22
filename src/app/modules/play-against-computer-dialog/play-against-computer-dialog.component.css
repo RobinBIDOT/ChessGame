@@ -26,3 +26,10 @@
 .selected {
     background-color: green;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  mat-toolbar button {
+    font-size: 14px;
+  }
+}

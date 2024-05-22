@@ -1,8 +1,13 @@
 .move-list {
-    max-height: 100px;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column-reverse;
+  max-height: 100px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto 15px;
 }
 
 .move-list::-webkit-scrollbar {
@@ -22,6 +27,7 @@
 
 .move-number {
     width: 50px;
+    text-align: center;
 }
 
 .current-move {
@@ -36,4 +42,16 @@
 .move:hover {
     background-color: rgb(0, 143, 168);
     opacity: 0.7
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .move-list {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+  }
+  .move {
+    width: 80px;
+  }
 }
